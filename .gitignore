@@ -1,0 +1,6 @@
+.zcompdump
+.zshrc_local
+
+.DS_Store
+*~
+*.un~

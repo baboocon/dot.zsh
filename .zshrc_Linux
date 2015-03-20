@@ -1,0 +1,26 @@
+# -*- mode: sh -*-
+# vi: set ft=sh :
+
+alias ls='ls --color=auto'
+
+## Mac 互換
+alias open='gnome-open'
+
+# clipboard
+if [[ -x `which xclip` ]]; then
+  alias pbcopy='xclip -selection clipboard -in'
+  alias pbpaste='xclip -selection clipboard -out'
+elif [[ -x `which xsel` ]]; then
+  alias pbcopy='xsel --clipboard --input'
+  alias pbpaste='xsel --clipboard --output'
+fi
+
+# zsh_command_not_found
+if [ -f /etc/zsh_command_not_found ]; then
+  . /etc/zsh_command_not_found
+fi
+
+## tmux 内で
+if [ -n "$TMUX" ]; then
+  alias tmux-copy='tmux save-buffer - | pbcopy'
+fi

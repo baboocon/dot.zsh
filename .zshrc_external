@@ -1,0 +1,43 @@
+# -*- mode: sh -*-
+# vi: set ft=sh :
+
+# zsh-syntax-highlighting
+# https://github.com/zsh-users/zsh-syntax-highlighting
+if [ -f $ZDOTDIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+  . $ZDOTDIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+# zsh-history-substring-search
+# https://github.com/zsh-users/zsh-history-substring-search
+if [ -d $ZDOTDIR/zsh-history-substring-search ]; then
+  . $ZDOTDIR/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+  # bind P and N for EMACS mode
+  bindkey -M emacs '^P' history-substring-search-up
+  bindkey -M emacs '^N' history-substring-search-down
+fi
+
+# dircolors
+if [[ -f ${HOME}/.dircolors && -x `which dircolors` ]]; then
+  eval `dircolors ~/.dircolors`
+  zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+fi
+
+# rbenv
+if [ -d ${HOME}/.rbenv ]; then
+  export PATH=$HOME/.rbenv/bin:$PATH
+  eval "$(rbenv init -)"
+  . ${HOME}/.rbenv/completions/rbenv.zsh
+  export BUNDLER_EDITOR='vi'
+  export GEM_EDITOR='vi'
+fi
+
+# plenv
+if [ -d ${HOME}/.plenv ]; then
+  export PATH=$HOME/.plenv/bin:$PATH
+  eval "$(plenv init -)"
+  . ${HOME}/.plenv/completions/plenv.zsh
+fi
+
+# nodebrew
+export PATH="$HOME/.nodebrew/current/bin:$PATH"
