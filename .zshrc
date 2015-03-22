@@ -1,4 +1,4 @@
-PS1="${USER}@${HOST%%.*}:%1~%(!.# .%% )"
+#PS1="${USER}@${HOST%%.*}:%1~%(!.# .%% )"
 
 ## 補完関数を増やす
 fpath=($ZDOTDIR/functions/completions/src(N-/) $ZDOTDIR/functions/misc-completion(N-/) ${fpath})
@@ -28,7 +28,8 @@ setopt nonomatch
 
 bindkey -e
 
-#PROMPT="%n@%m%% "
+PROMPT="[%n@%m]:%1~%(!.# .%% )"
+RPROMPT="[%d]"
 
 ## 重複パスを登録しない
 typeset -U path cdpath fpath manpath
