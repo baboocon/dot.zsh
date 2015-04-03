@@ -40,4 +40,7 @@ if [ -d ${HOME}/.plenv ]; then
 fi
 
 # nodebrew
-export PATH="$HOME/.nodebrew/current/bin:$PATH"
+# nodebrewのために追加した部分
+if [[ -f ~/.nodebrew/nodebrew ]]; then
+  export PATH=$HOME/.nodebrew/current/bin:$PATH
+fi
