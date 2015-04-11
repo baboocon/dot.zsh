@@ -1,0 +1,25 @@
+# Ubuntu14.10のローカル設定
+
+# Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+PERL_MB_OPT="--install_base \"/home/$USER/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/$USER/perl5"; export PERL_MM_OPT;
+
+# Raspberry Piのカーネルビルドツリー作成時に追記
+export PATH=${HOME}/raspberry/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin:${PATH}
+
+# UbuntuでVimをビルド後に追記
+alias vim='/usr/local/bin/vim'
+alias vi='/usr/local/bin/vim'
+alias gvim='/usr/local/bin/gvim'
+
+# goを$HOME/local/bin/go にインストール時に追記
+export PATH="$HOME/local/go/bin:$PATH"
+
+# Hugoを$HOME/go/bin/hugo にインストール時に追記
+export GOPATH="$HOME/go"
+export PATH="$HOME/go/bin:$PATH"
+
+# xkbによるキーバインドの変更時に追記
+xkbcomp -I$HOME/.xkb $HOME/.xkb/kepmap/mykbd $DISPLAY 2> /dev/null
