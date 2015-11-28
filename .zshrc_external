@@ -41,6 +41,14 @@ fi
 
 # nodebrew
 # nodebrewのために追加した部分
-if [[ -f ~/.nodebrew/nodebrew ]]; then
+if [ -d ${HOME}/.nodebrew ]; then
   export PATH=$HOME/.nodebrew/current/bin:$PATH
+fi
+
+# nodenv
+# nodenvのために追加した部分
+if [ -d ${HOME}/.nodenv ]; then
+  export PATH=$HOME/.nodenv/bin:$PATH
+  eval "$(nodenv init -)"
+  . ${HOME}/.nodenv/completions/nodenv.zsh
 fi
