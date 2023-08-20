@@ -26,8 +26,8 @@ fi
 # rbenv
 if [ -d ${HOME}/.rbenv ]; then
   export PATH=$HOME/.rbenv/bin:$PATH
-  eval "$(rbenv init -)"
-  . ${HOME}/.rbenv/completions/rbenv.zsh
+#  eval "$(rbenv init -)"
+#  . ${HOME}/.rbenv/completions/rbenv.zsh
   export BUNDLER_EDITOR='vi'
   export GEM_EDITOR='vi'
 fi
